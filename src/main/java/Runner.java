@@ -9,7 +9,7 @@ public class Runner {
         DBHelper.save(courseVicker);
         Instructor instructorMike = new Instructor("Mike");
         DBHelper.save(instructorMike);
-        Lesson lessonWeaving = new Lesson("Introduction to weaving", 3);
+        Lesson lessonWeaving = new Lesson("Introduction to weaving", 3, courseVicker);
         DBHelper.save(lessonWeaving);
         Mentor mentorRobert = new Mentor("Robert");
         DBHelper.save(mentorRobert);
