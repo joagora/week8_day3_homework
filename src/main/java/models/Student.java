@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class Student {
     private int enrolmentNumber;
     private Mentor mentor;
     private Course course;
+    private List<Lesson> lessons;
 
     public Student(String name, int age, int enrolmentNumber, Mentor mentor, Course course) {
         this.name = name;
@@ -81,5 +84,20 @@ public class Student {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(
+            name = "lessons_students",
+            joinColumns = {@JoinColumn(name = "student_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "lesson_id", nullable = false, updatable = false)}
+    )
+    public List<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }

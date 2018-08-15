@@ -1,4 +1,5 @@
 import db.DBHelper;
+import db.DBLesson;
 import models.*;
 
 public class Runner {
@@ -15,5 +16,7 @@ public class Runner {
         DBHelper.save(mentorRobert);
         Student studentRaphael = new Student("Raphael", 28, 2, mentorRobert, courseVicker);
         DBHelper.save(studentRaphael);
+
+        DBLesson.addStudentToLesson(studentRaphael, lessonWeaving);
     }
 }
