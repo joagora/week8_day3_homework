@@ -13,7 +13,7 @@ public class Runner {
         DBHelper.save(lessonWeaving);
         Mentor mentorRobert = new Mentor("Robert");
         DBHelper.save(mentorRobert);
-        Student studentRaphael = new Student("Raphael", 28, 2);
+        Student studentRaphael = new Student("Raphael", 28, 2, mentorRobert);
         DBHelper.save(studentRaphael);
     }
 }

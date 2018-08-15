@@ -8,6 +8,7 @@ public class Mentor {
 
     private int id;
     private String name;
+    private Student student;
 
     public Mentor(String name) {
         this.name = name;
@@ -34,5 +35,14 @@ public class Mentor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @OneToOne(mappedBy = "mentor", fetch = FetchType.LAZY)
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }
